@@ -16,5 +16,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--color-bg-secondary);
+  color: var(--color-text);
 }
 </style>

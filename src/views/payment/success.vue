@@ -38,6 +38,7 @@ onMounted(() => {
   flex-direction: column;
   .payment-success {
     font-size: 30px;
+    color: var(--color-text);
   }
   .btn {
     margin-top: 20px;

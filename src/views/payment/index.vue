@@ -48,7 +48,7 @@ const onBuyItem = async (pakg) => {
   padding: 10px;
   .item {
     padding: 20px;
-    background-color: #f1f1f1;
+    background-color: var(--color-bg);
     border-radius: 10px;
     margin: 10px;
 
@@ -56,10 +56,12 @@ const onBuyItem = async (pakg) => {
       font-size: 16px;
       font-weight: 600;
       margin-bottom: 10px;
+      color: var(--color-text);
     }
     .item-price {
       font-size: 14px;
       margin-top: 8px;
+      color: var(--color-text);
     }
     button {
       padding: 4px 8px;
@@ -70,6 +72,7 @@ const onBuyItem = async (pakg) => {
       margin-top: 8px;
       text-align: center;
       cursor: pointer;
+      font-size: 14px;
     }
   }
 }

@@ -1,0 +1,109 @@
+:root {
+  .dark {
+    --color-bg: #2c2c2e;
+    --color-bg-secondary: #1c1c1d;
+    --color-bg-tertiary: rgba(118, 118, 128, 0.1);
+    --color-bg-quarternary: rgba(255, 255, 255, 0.16);
+    --color-bg-button: var(--tg-theme-button-color, #3e88f7);
+    --color-bg-overlay: rgba(0, 0, 0, 0.3);
+
+    --color-text: #ffffff;
+    --color-text-light: #d4d4d4;
+    --color-text-secondary: #858585;
+    --color-text-button: var(--tg-theme-button-text-color, #ffffff);
+    --color-hint: var(--tg-theme-hint-color, #98989e);
+    --color-link: var(--tg-theme-link-color, #3e88f7);
+    --color-defi: #affb2c;
+    --color-label: #757575;
+    --separator-color: rgba(255, 255, 255, 0.1);
+
+    --skeleton-color: var(--color-bg-tertiary);
+
+    --color-overlay-floating: rgba(19, 19, 19, 0.82);
+    --color-panel-shadow: rgb(#303757, 0.12);
+    --color-provider-border: #ced0d9;
+    --color-provider-background: #edeef2;
+    --color-outline: #aaaaa;
+    --color-error: #e53935;
+    --color-button-disable: #757575;
+  }
+
+  .light {
+    --color-bg: #fff;
+    --color-bg-secondary: #efeff4;
+    --color-bg-tertiary: rgba(235, 235, 235, 0.75);
+    --color-bg-quarternary: rgba(0, 0, 0, 0.16);
+    --color-bg-button: var(--tg-theme-button-color, #007aff);
+
+    --color-text: #1e1e1e;
+    --color-text-light: #606060;
+    --color-text-secondary: #858585;
+    --color-text-button: var(--tg-theme-button-text-color, #fff);
+    --color-hint: var(--tg-theme-hint-color, #8e8e93);
+    --color-link: var(--tg-theme-link-color, #007aff);
+    --color-defi: #affb2c;
+    --color-label: #757575;
+    --separator-color: rgba(204, 204, 204, 0.36);
+    --color-overlay-floating: rgba(19, 19, 19, 0.79);
+    --color-panel-shadow: rgb(#303757, 0.12);
+    --color-provider-border: #ced0d9;
+    --color-provider-background: #edeef2;
+    --color-outline: #aaaaa;
+    --color-error: #e53935;
+    --color-button-disable: #efeff4;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --color-bg: #2c2c2e;
+    --color-bg-secondary: #1c1c1d;
+    --color-bg-tertiary: rgba(118, 118, 128, 0.1);
+    --color-bg-quarternary: rgba(255, 255, 255, 0.16);
+    --color-bg-button: var(--tg-theme-button-color, #3e88f7);
+    --color-bg-overlay: rgba(0, 0, 0, 0.3);
+
+    --color-text: #ffffff;
+    --color-text-light: #d4d4d4;
+    --color-text-secondary: #858585;
+    --color-text-button: var(--tg-theme-button-text-color, #ffffff);
+    --color-hint: var(--tg-theme-hint-color, #98989e);
+    --color-link: var(--tg-theme-link-color, #3e88f7);
+    --color-defi: #affb2c;
+    --color-label: #757575;
+    --separator-color: rgba(255, 255, 255, 0.1);
+
+    --skeleton-color: var(--color-bg-tertiary);
+
+    --color-overlay-floating: rgba(19, 19, 19, 0.82);
+    --color-panel-shadow: rgb(#303757, 0.12);
+    --color-provider-border: #ced0d9;
+    --color-provider-background: #edeef2;
+    --color-outline: #aaaaa;
+    --color-error: #e53935;
+    --color-button-disable: #757575;
+  }
+
+  @media (prefers-color-scheme: light) {
+    --color-bg: var(--tg-theme-bg-color, #fff);
+    --color-bg-secondary: #efeff4;
+    --color-bg-tertiary: rgba(235, 235, 235, 0.75);
+    --color-bg-quarternary: rgba(0, 0, 0, 0.16);
+    --color-bg-button: var(--tg-theme-button-color, #007aff);
+
+    --color-text: #1e1e1e;
+    --color-text-light: #606060;
+    --color-text-secondary: #858585;
+    --color-text-button: var(--tg-theme-button-text-color, #fff);
+    --color-hint: var(--tg-theme-hint-color, #8e8e93);
+    --color-link: var(--tg-theme-link-color, #007aff);
+    --color-defi: #affb2c;
+    --color-label: #757575;
+    --separator-color: rgba(204, 204, 204, 0.36);
+    --color-overlay-floating: rgba(19, 19, 19, 0.79);
+    --color-panel-shadow: rgb(#303757, 0.12);
+    --color-provider-border: #ced0d9;
+    --color-provider-background: #edeef2;
+    --color-outline: #aaaaa;
+    --color-error: #e53935;
+    --color-button-disable: #efeff4;
+  }
+}
