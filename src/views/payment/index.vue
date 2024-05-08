@@ -2,14 +2,14 @@
 import WebApp from "@twa-dev/sdk";
 import axios from "axios";
 import { ref } from "vue";
-
+import { useDebounceFn } from "@vueuse/core";
 const listItem = ref([
-  { itemId: 1, price: 0.1, name: "Premium for 1 month", desciption: "" },
-  { itemId: 2, price: 0.2, name: "Premium for 3 month", desciption: "" },
-  { itemId: 3, price: 0.3, name: "Premium for 5 month", desciption: "" },
+  { itemId: 1, price: 0.01, name: "Premium for 1 month", desciption: "" },
+  { itemId: 2, price: 0.02, name: "Premium for 3 month", desciption: "" },
+  { itemId: 3, price: 0.03, name: "Premium for 5 month", desciption: "" },
 ]);
 
-const onBuyItem = async (pakg) => {
+const onBuyItem = useDebounceFn(async (pakg) => {
   const axiosConfig = {
     headers: {
       "Content-Type": "application/json",
@@ -27,7 +27,7 @@ const onBuyItem = async (pakg) => {
   const obj = result.data.data;
 
   WebApp.openTelegramLink(obj.payLink);
-};
+}, 200);
 </script>
 <template>
   <div class="list-item">
