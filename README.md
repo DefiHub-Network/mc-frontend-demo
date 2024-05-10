@@ -13,7 +13,7 @@ To install and run Web Application, you will need the following:
 To install Web Application, follow these steps:
 
 1. Clone the repository:
-   git clone https://github.com/your-username/my-web-application.git
+   git clone https://github.com/DefiHub-Network/mc-frontend-demo.git
 
 2. Navigate to the repository:
    cd my-web-application
@@ -29,7 +29,7 @@ To install Web Application, follow these steps:
 1. Merchant Bot Demo
    https://t.me/merchant_defihubdemo_bot/
 2. Telegram Mini Web
-   - Hom page
+   - Home page
      https://t.me/merchant_defihubdemo_bot/plan
    - Success page
      https://t.me/merchant_defihubdemo_bot/success
