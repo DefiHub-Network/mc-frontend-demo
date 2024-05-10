@@ -1,20 +1,28 @@
-<script setup>
-import { useRouter } from "vue-router";
-import { onMounted } from "vue";
+<script lang="ts" setup>
+import { onMounted, ref } from "vue";
 import WebApp from "@twa-dev/sdk";
-const router = useRouter();
+
 const onClose = () => {
   WebApp.close();
 };
 
+const myOrderId = ref("");
 onMounted(() => {
-  const data = WebApp.initData;
-  const parsedData = queryString.parse(data);
+  // get data from telegram
+  const data = new URLSearchParams(WebApp.initData);
+  // parse data;
+  const parsedData = Object.fromEntries(data);
+  // get start_param
   const start_param = parsedData.start_param;
+
   if (start_param) {
     const params = start_param.toString().replace("orderId_", "");
     if (params) {
-      const orderId = params;
+      // my orderid
+      myOrderId.value = params;
+
+      // process next step with orderId
+      // ....
     }
   }
 });
@@ -22,6 +30,7 @@ onMounted(() => {
 <template>
   <div class="page">
     <div class="payment-success">Payment success</div>
+    <div>{{ myOrderId }}</div>
     <div>
       <button class="btn btn-defi" @click="onClose">Close</button>
     </div>
