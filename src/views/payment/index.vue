@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import axios from "axios";
-import { ref } from "vue";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 import { useDebounceFn } from "@vueuse/core";
 import WebApp from "@twa-dev/sdk";
 // list data sample
@@ -38,19 +38,17 @@ const onBuyItem = useDebounceFn(async (pakg) => {
 }, 200);
 
 const waitBuySuccess = () => {
+  intervalCheck = setInterval(() => {
+    refreshPlanUser();
+  }, 10000);
   setTimeout(() => {
-    intervalCheck = setInterval(() => {
-      if (statusPayment.value == 0) {
-        refreshPlanUser();
-      } else {
-        if (intervalCheck) clearInterval(intervalCheck);
-      }
-    }, 10 * 1000);
-    setTimeout(() => {
-      if (intervalCheck) clearInterval(intervalCheck);
-    }, 40 * 1000);
-  }, 20 * 1000);
+    if (intervalCheck) clearInterval(intervalCheck);
+  }, 90000);
 };
+
+onBeforeUnmount(() => {
+  if (intervalCheck) clearInterval(intervalCheck);
+});
 
 // refresh plan of user
 const refreshPlanUser = async () => {
@@ -58,9 +56,11 @@ const refreshPlanUser = async () => {
     "https://mc-api-demo.defihub.network/my-subscription"
   );
   const obj = result.data.data;
-
   statusPayment.value = obj.totalMonths;
 };
+onMounted(() => {
+  refreshPlanUser();
+});
 </script>
 <template>
   <div class="plan-title">Please select plan</div>
