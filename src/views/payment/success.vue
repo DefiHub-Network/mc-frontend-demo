@@ -3,10 +3,13 @@ import { onMounted, ref } from "vue";
 import WebApp from "@twa-dev/sdk";
 
 const onClose = () => {
-  WebApp.close();
+  setTimeout(() => {
+    WebApp.close();
+  }, 100);
 };
 
-const myOrderId = ref("");
+const orderId = ref("");
+const externalId = ref("");
 onMounted(() => {
   // get data from telegram
   const data = new URLSearchParams(WebApp.initData);
@@ -16,10 +19,12 @@ onMounted(() => {
   const start_param = parsedData.start_param;
 
   if (start_param) {
-    const params = start_param.toString().replace("orderId_", "");
+    const params = start_param.toString().split("_");
     if (params) {
+      // payment orderid
+      orderId.value = params[0];
       // my orderid
-      myOrderId.value = params;
+      externalId.value = params[1];
 
       // process next step with orderId
       // ....
@@ -30,7 +35,8 @@ onMounted(() => {
 <template>
   <div class="page">
     <div class="payment-success">Payment success</div>
-    <div>{{ myOrderId }}</div>
+    <div>OrderId: {{ orderId }}</div>
+    <div>ExternalId: {{ externalId }}</div>
     <div>
       <button class="btn btn-defi" @click="onClose">Close</button>
     </div>

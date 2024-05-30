@@ -5,9 +5,24 @@ import { useDebounceFn } from "@vueuse/core";
 import WebApp from "@twa-dev/sdk";
 // list data sample
 const listItem = ref([
-  { itemId: 1, price: 0.01, name: "Premium for 1 month", desciption: "" },
-  { itemId: 2, price: 0.02, name: "Premium for 3 month", desciption: "" },
-  { itemId: 3, price: 0.03, name: "Premium for 5 month", desciption: "" },
+  {
+    itemId: 1,
+    price: 0.01,
+    name: "Premium for 1 month",
+    desciption: "manuaOpenPay:false, skipTxVerified:false",
+  },
+  {
+    itemId: 2,
+    price: 0.02,
+    name: "Premium for 3 month",
+    desciption: "manuaOpenPay:true, skipTxVerified:true",
+  },
+  {
+    itemId: 3,
+    price: 0.03,
+    name: "Premium for 5 month",
+    desciption: "manuaOpenPay:true, skipTxVerified:false",
+  },
 ]);
 
 const statusPayment = ref(0);
@@ -69,6 +84,7 @@ onMounted(() => {
       <div>
         <div class="item-name">{{ item.name }}</div>
         <div class="item-price">{{ item.price }} TON</div>
+        <div class="item-config">{{ item.desciption }}</div>
         <button @click="onBuyItem(item)">Buy</button>
       </div>
     </div>
@@ -89,10 +105,13 @@ onMounted(() => {
   justify-content: center;
   padding: 10px;
   .item {
-    padding: 20px;
+    padding: 6px;
     background-color: var(--color-bg);
     border-radius: 10px;
-    margin: 10px;
+    margin-right: 8px;
+    :last-child {
+      margin-right: 0px;
+    }
 
     .item-name {
       font-size: 16px;
@@ -103,6 +122,11 @@ onMounted(() => {
     .item-price {
       font-size: 14px;
       margin-top: 8px;
+      color: var(--color-text);
+    }
+    .item-config {
+      font-size: 12px;
+      margin-top: 12px;
       color: var(--color-text);
     }
     button {

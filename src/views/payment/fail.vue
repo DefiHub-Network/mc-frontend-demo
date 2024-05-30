@@ -6,6 +6,8 @@ const onClose = () => {
   WebApp.close();
 };
 
+const orderId = ref("");
+const externalId = ref("");
 onMounted(() => {
   // get data from telegram
   const data = new URLSearchParams(WebApp.initData);
@@ -14,10 +16,12 @@ onMounted(() => {
   // get start_param
   const start_param = parsedData.start_param;
   if (start_param) {
-    const params = start_param.toString().replace("orderId_", "");
+    const params = start_param.toString().split("_");
     if (params) {
+      // payment orderid
+      orderId.value = params[0];
       // my orderid
-      myOrderId.value = params;
+      externalId.value = params[1];
 
       // process next step with orderId
       // ....
@@ -28,7 +32,8 @@ onMounted(() => {
 <template>
   <div class="page">
     <div class="payment-success">Payment not success</div>
-
+    <div>OrderId: {{ orderId }}</div>
+    <div>ExternalId: {{ externalId }}</div>
     <div>
       <button class="btn btn-defi" @click="onClose">Close</button>
     </div>
