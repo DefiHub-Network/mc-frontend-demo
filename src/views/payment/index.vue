@@ -9,19 +9,19 @@ const listItem = ref([
     itemId: 1,
     price: 0.01,
     name: "Premium for 1 month",
-    desciption: "manuaOpenPay:false, skipTxVerified:false",
+    desciption: "manualOpenPay:false, skipTxVerified:false",
   },
   {
     itemId: 2,
     price: 0.02,
     name: "Premium for 3 month",
-    desciption: "manuaOpenPay:true, skipTxVerified:true",
+    desciption: "manualOpenPay:true, skipTxVerified:true",
   },
   {
     itemId: 3,
     price: 0.03,
     name: "Premium for 5 month",
-    desciption: "manuaOpenPay:true, skipTxVerified:false",
+    desciption: "manualOpenPay:true, skipTxVerified:false",
   },
 ]);
 
