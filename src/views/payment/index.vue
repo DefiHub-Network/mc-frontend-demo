@@ -116,35 +116,37 @@ const onMintNFT = useDebounceFn(async () => {
 }, 200);
 </script>
 <template>
-  <div class="plan-title">Please select plan</div>
-  <div class="list-item">
-    <div v-for="item in listItem" :key="item.itemId" class="item">
-      <div>
-        <div class="item-name">{{ item.name }}</div>
-        <div class="item-price">{{ item.price }} TON</div>
-        <div class="item-config">{{ item.desciption }}</div>
-        <button @click="onBuyItem(item)">Buy</button>
+  <div tabindex="-1">
+    <div class="plan-title">Please select plan</div>
+    <div class="list-item">
+      <div v-for="item in listItem" :key="item.itemId" class="item">
+        <div>
+          <div class="item-name">{{ item.name }}</div>
+          <div class="item-price">{{ item.price }} TON</div>
+          <div class="item-config">{{ item.desciption }}</div>
+          <button @click="onBuyItem(item)">Buy</button>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="plan-title">Current plan month: {{ statusPayment }}</div>
-  <div class="plan-title">Mint NFT</div>
-  <div class="list-item" style="height: 150px">
-    <div class="nft-item">
-      <img src="@/assets/image.jpeg" />
+    <div class="plan-title">Current plan month: {{ statusPayment }}</div>
+    <div class="plan-title">Mint NFT</div>
+    <div class="list-item" style="height: 150px">
+      <div class="nft-item">
+        <img src="@/assets/image.jpeg" />
+      </div>
     </div>
-  </div>
-  <div class="info-min" style="height: 200px">
-    <label>Wallet</label>
-    <input type="text" v-model="walletMint" placeholder="wallet mint" />
-    <label>Price</label>
-    <input
-      type="number"
-      min="0.05"
-      v-model="priceMint"
-      placeholder="Price mint"
-    />
-    <div><button @click="onMintNFT">Mint</button></div>
+    <div class="info-min" style="height: 200px">
+      <label>Wallet</label>
+      <input type="text" v-model="walletMint" placeholder="wallet mint" />
+      <label>Price</label>
+      <input
+        type="number"
+        min="0.05"
+        v-model="priceMint"
+        placeholder="Price mint"
+      />
+      <div><button @click="onMintNFT">Mint</button></div>
+    </div>
   </div>
 </template>
 <style lang="scss">
@@ -226,6 +228,17 @@ const onMintNFT = useDebounceFn(async () => {
   label {
     margin-top: 10px;
     margin-bottom: 5px;
+  }
+  button {
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: rgb(10, 231, 106);
+    width: 100%;
+    color: black;
+    margin-top: 8px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
   }
   input {
     width: 100%;
