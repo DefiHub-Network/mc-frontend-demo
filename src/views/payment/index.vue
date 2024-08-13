@@ -105,7 +105,7 @@ const onMintNFT = useDebounceFn(async () => {
     // open gateway conversion
     console.log(obj);
     WebApp.openTelegramLink(
-      `https://t.me/khonghaikhongbonbot/mintnft?startapp=${obj.id}`
+      `https://t.me/mt_22_test_bot/mintnft?startapp=${obj.id}`
     );
   }
 }, 200);
