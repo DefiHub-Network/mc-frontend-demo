@@ -78,35 +78,40 @@ onMounted(() => {
   refreshPlanUser();
 });
 
+const walletMint = ref("");
+const priceMint = ref(0.05);
+
 // call api to open defihub
 const onMintNFT = useDebounceFn(async () => {
-  const axiosConfig = {
-    headers: {
-      "Content-Type": "application/json",
-      "api-key": "sandbox00",
-    },
-  };
-  const data = {
-    collectionId: 1,
-    offchainId: Math.floor(new Date().getTime() / 1000),
-    ownerAddress: "UQBNR_PfQHof0r1P5XclCoacco4Z-3U56JfkG64QYaF9MJNh",
-    price: 0.05,
-    uri: "QmR9ybqa8haQBLtECEwNR6PfmW5bzfJtaYAHvsHMceSGTM/elite.json",
-    image: "ipfs://QmYvozGpk7faijainsVjWk7xyNwLkkLQy5i7mh6H5Dm9uy/nine.jpeg",
-  };
-  const result = await axios.post(
-    "https://nft-api.defihub.network/v1/conversion",
-    data,
-    axiosConfig
-  );
-
-  const obj = result.data.data;
-  if (obj) {
-    // open gateway conversion
-    console.log(obj);
-    WebApp.openTelegramLink(
-      `https://t.me/mt_22_test_bot/mintnft?startapp=${obj.id}`
+  if (Number(priceMint.value) >= 0.05 && walletMint.value.length > 0) {
+    const axiosConfig = {
+      headers: {
+        "Content-Type": "application/json",
+        "api-key": "sandbox00",
+      },
+    };
+    const data = {
+      collectionId: 1,
+      offchainId: Math.floor(new Date().getTime() / 1000),
+      ownerAddress: walletMint.value,
+      price: Number(priceMint.value),
+      uri: "QmR9ybqa8haQBLtECEwNR6PfmW5bzfJtaYAHvsHMceSGTM/elite.json",
+      image: "ipfs://QmYvozGpk7faijainsVjWk7xyNwLkkLQy5i7mh6H5Dm9uy/nine.jpeg",
+    };
+    const result = await axios.post(
+      "https://nft-api.defihub.network/v1/conversion",
+      data,
+      axiosConfig
     );
+
+    const obj = result.data.data;
+    if (obj) {
+      // open gateway conversion
+      console.log(obj);
+      WebApp.openTelegramLink(
+        `https://t.me/mt_22_test_bot/mintnft?startapp=${obj.id}`
+      );
+    }
   }
 }, 200);
 </script>
@@ -127,8 +132,14 @@ const onMintNFT = useDebounceFn(async () => {
   <div class="list-item">
     <div class="nft-item">
       <img src="@/assets/image.jpeg" />
-      <div><button @click="onMintNFT">Mint 0.05 TON</button></div>
     </div>
+  </div>
+  <div class="info-min">
+    <label>Wallet</label>
+    <input v-model="walletMint" placeholder="wallet mint" />
+    <label>Price</label>
+    <input v-model="priceMint" placeholder="Price mint" />
+    <div><button @click="onMintNFT">Mint</button></div>
   </div>
 </template>
 <style lang="scss">
@@ -197,6 +208,19 @@ const onMintNFT = useDebounceFn(async () => {
     text-align: center;
     cursor: pointer;
     font-size: 14px;
+  }
+}
+.info-min {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  width: 300px;
+  align-items: center;
+  margin: 0 auto;
+  button,
+  label {
+    margin-top: 10px;
+    margin-bottom: 5px;
   }
 }
 </style>
