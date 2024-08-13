@@ -129,8 +129,8 @@ const onMintNFT = useDebounceFn(async () => {
   </div>
   <div class="plan-title">Current plan month: {{ statusPayment }}</div>
   <div class="plan-title">Mint NFT</div>
-  <div class="list-item">
-    <div class="nft-item">
+  <div class="list-item" style="height: 150px">
+    <div class="nft-item" style="height: 200px">
       <img src="@/assets/image.jpeg" />
     </div>
   </div>
