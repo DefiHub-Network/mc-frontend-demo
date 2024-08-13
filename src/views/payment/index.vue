@@ -222,5 +222,9 @@ const onMintNFT = useDebounceFn(async () => {
     margin-top: 10px;
     margin-bottom: 5px;
   }
+  input {
+    width: 100%;
+    font-size: 16px;
+  }
 }
 </style>
