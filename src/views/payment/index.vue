@@ -46,7 +46,8 @@ const onBuyItem = useDebounceFn(async (pakg) => {
   const obj = result.data.data;
   if (obj) {
     // open payment
-    WebApp.openTelegramLink(obj.payLink);
+    const link = obj.payLink;
+    WebApp.openTelegramLink(link);
     // wait payment success
     waitBuySuccess();
   }
@@ -76,6 +77,38 @@ const refreshPlanUser = async () => {
 onMounted(() => {
   refreshPlanUser();
 });
+
+// call api to open defihub
+const onMintNFT = useDebounceFn(async () => {
+  const axiosConfig = {
+    headers: {
+      "Content-Type": "application/json",
+      "api-key": "sandbox00",
+    },
+  };
+  const data = {
+    collectionId: 1,
+    offchainId: Math.floor(new Date().getTime() / 1000),
+    ownerAddress: "UQBNR_PfQHof0r1P5XclCoacco4Z-3U56JfkG64QYaF9MJNh",
+    price: 0.05,
+    uri: "QmR9ybqa8haQBLtECEwNR6PfmW5bzfJtaYAHvsHMceSGTM/elite.json",
+    image: "ipfs://QmYvozGpk7faijainsVjWk7xyNwLkkLQy5i7mh6H5Dm9uy/nine.jpeg",
+  };
+  const result = await axios.post(
+    "https://nft-api.defihub.network/v1/conversion",
+    data,
+    axiosConfig
+  );
+
+  const obj = result.data.data;
+  if (obj) {
+    // open gateway conversion
+    console.log(obj);
+    WebApp.openTelegramLink(
+      `https://t.me/khonghaikhongbonbot/mintnft?startapp=${obj.id}`
+    );
+  }
+}, 200);
 </script>
 <template>
   <div class="plan-title">Please select plan</div>
@@ -90,6 +123,13 @@ onMounted(() => {
     </div>
   </div>
   <div class="plan-title">Current plan month: {{ statusPayment }}</div>
+  <div class="plan-title">Mint NFT</div>
+  <div class="list-item">
+    <div class="nft-item">
+      <img src="@/assets/image.jpeg" />
+      <div><button @click="onMintNFT">Mint 0.05 TON</button></div>
+    </div>
+  </div>
 </template>
 <style lang="scss">
 .plan-title {
@@ -140,6 +180,23 @@ onMounted(() => {
       cursor: pointer;
       font-size: 14px;
     }
+  }
+}
+.nft-item {
+  img {
+    width: 150px;
+    height: 150px;
+  }
+  button {
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: rgb(10, 231, 106);
+    width: 100%;
+    color: black;
+    margin-top: 8px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
   }
 }
 </style>
