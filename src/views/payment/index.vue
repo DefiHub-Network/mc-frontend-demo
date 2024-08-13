@@ -130,11 +130,11 @@ const onMintNFT = useDebounceFn(async () => {
   <div class="plan-title">Current plan month: {{ statusPayment }}</div>
   <div class="plan-title">Mint NFT</div>
   <div class="list-item" style="height: 150px">
-    <div class="nft-item" style="height: 200px">
+    <div class="nft-item">
       <img src="@/assets/image.jpeg" />
     </div>
   </div>
-  <div class="info-min">
+  <div class="info-min" style="height: 200px">
     <label>Wallet</label>
     <input type="text" v-model="walletMint" placeholder="wallet mint" />
     <label>Price</label>
