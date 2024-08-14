@@ -96,7 +96,7 @@ const onMintNFT = useDebounceFn(async () => {
       price: Number(priceMint.value),
       uri: "ipfs://QmR9ybqa8haQBLtECEwNR6PfmW5bzfJtaYAHvsHMceSGTM/elite.json",
       image: "ipfs://QmYvozGpk7faijainsVjWk7xyNwLkkLQy5i7mh6H5Dm9uy/nine.jpeg",
-      returnUrl: "https://t.me/merchant_defihubdemo_bot?startapp",
+      returnUrl: "",
     };
     const result = await axios.post(
       "https://nft-api.defihub.network/v1/conversion",
