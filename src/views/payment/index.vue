@@ -93,10 +93,10 @@ const onMintNFT = useDebounceFn(async () => {
     const data = {
       collectionId: 1,
       offchainId: Math.floor(new Date().getTime() / 1000),
-      ownerAddress: walletMint.value,
       price: Number(priceMint.value),
       uri: "QmR9ybqa8haQBLtECEwNR6PfmW5bzfJtaYAHvsHMceSGTM/elite.json",
       image: "ipfs://QmYvozGpk7faijainsVjWk7xyNwLkkLQy5i7mh6H5Dm9uy/nine.jpeg",
+      returnUrl: "https://t.me/merchant_defihubdemo_bot?startapp",
     };
     const result = await axios.post(
       "https://nft-api.defihub.network/v1/conversion",
@@ -136,8 +136,6 @@ const onMintNFT = useDebounceFn(async () => {
       </div>
     </div>
     <div class="info-min" style="height: 200px">
-      <label>Wallet</label>
-      <input type="text" v-model="walletMint" placeholder="wallet mint" />
       <label>Price</label>
       <input
         type="number"
