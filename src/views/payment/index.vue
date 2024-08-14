@@ -94,6 +94,7 @@ const onMintNFT = useDebounceFn(async () => {
       collectionId: 1,
       offchainId: Math.floor(new Date().getTime() / 1000),
       price: Number(priceMint.value),
+      minPrice: 0.05,
       uri: "Qmdb22Q84hyTrssBFgBnv92kggCgxTW9oC1zgVJkp5XzAb",
       image: "https://mcbot.defihub.network/image.jpeg",
     };
