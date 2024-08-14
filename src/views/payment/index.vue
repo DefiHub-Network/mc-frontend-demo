@@ -83,7 +83,7 @@ const priceMint = ref(0.05);
 
 // call api to open defihub
 const onMintNFT = useDebounceFn(async () => {
-  if (Number(priceMint.value) >= 0.05 && walletMint.value.length > 0) {
+  if (Number(priceMint.value) >= 0.05) {
     const axiosConfig = {
       headers: {
         "Content-Type": "application/json",
