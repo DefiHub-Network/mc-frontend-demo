@@ -94,8 +94,8 @@ const onMintNFT = useDebounceFn(async () => {
       collectionId: 1,
       offchainId: Math.floor(new Date().getTime() / 1000),
       price: Number(priceMint.value),
-      uri: "Qmdb22Q84hyTrssBFgBnv92kggCgxTW9oC1zgVJkp5XzAb/elite.json",
-      image: "ipfs://QmYvozGpk7faijainsVjWk7xyNwLkkLQy5i7mh6H5Dm9uy/nine.jpeg",
+      uri: "Qmdb22Q84hyTrssBFgBnv92kggCgxTW9oC1zgVJkp5XzAb",
+      image: "https://mcbot.defihub.network/image.jpeg",
     };
     const result = await axios.post(
       "https://nft-api.defihub.network/v1/conversion",
