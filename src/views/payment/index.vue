@@ -94,7 +94,7 @@ const onMintNFT = useDebounceFn(async () => {
       collectionId: 1,
       offchainId: Math.floor(new Date().getTime() / 1000),
       price: Number(priceMint.value),
-      uri: "QmR9ybqa8haQBLtECEwNR6PfmW5bzfJtaYAHvsHMceSGTM/elite.json",
+      uri: "ipfs://QmR9ybqa8haQBLtECEwNR6PfmW5bzfJtaYAHvsHMceSGTM/elite.json",
       image: "ipfs://QmYvozGpk7faijainsVjWk7xyNwLkkLQy5i7mh6H5Dm9uy/nine.jpeg",
       returnUrl: "https://t.me/merchant_defihubdemo_bot?startapp",
     };
