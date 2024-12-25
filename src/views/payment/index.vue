@@ -46,7 +46,7 @@ const onBuyItem = useDebounceFn(async (pakg) => {
   const obj = result.data.data;
   if (obj) {
     // open payment
-    const link = obj.payLink;
+    const link = obj.payLink.replace("@DefiApp_bot", "@mt_22_test_bot");
     WebApp.openTelegramLink(link);
     // wait payment success
     waitBuySuccess();
