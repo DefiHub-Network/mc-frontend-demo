@@ -13,7 +13,7 @@ onBeforeUnmount(() => {
 </script>
 <template>
   <iframe
-    src="https://appdev.defihub.network/trade/swap"
+    :src="'https://appdev.defihub.network/trade/swap#' + WebApp.initDataUnsafe"
     :style="{ width: '100%', height: '500px', border: 0 }"
   ></iframe>
 </template>
