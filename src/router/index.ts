@@ -18,6 +18,12 @@ const routes = [
     component: () => import("@/views/payment/success.vue"),
     children: [],
   },
+  {
+    path: "/meme",
+    name: "meme",
+    component: () => import("@/views/payment/iframe.vue"),
+    children: [],
+  },
 ];
 
 const router = createRouter({
