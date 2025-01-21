@@ -19,8 +19,8 @@ const routes = [
     children: [],
   },
   {
-    path: "/meme",
-    name: "meme",
+    path: "/iframe",
+    name: "iframe",
     component: () => import("@/views/payment/iframe.vue"),
     children: [],
   },
