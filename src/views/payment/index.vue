@@ -145,7 +145,7 @@ const onMintNFT = useDebounceFn(async () => {
     </div>
     <div id="embed">
       <iframe
-        src="https://appdev.defihub.network/trade/swap?from=TON&to=SAIYAN#tgWebAppPlatform=web"
+        src="https://appdev.defihub.network/trade/swap?from=TON&to=SAIYAN#tgWebAppPlatform=weba"
       ></iframe>
     </div>
   </div>
